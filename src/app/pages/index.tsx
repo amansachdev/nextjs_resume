@@ -1,4 +1,6 @@
-import Resume from './components/Resume';
+
+
+import Resume from '../components/Resume';
 
 const Home: React.FC = () => {
   return (
