@@ -17,10 +17,15 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 const Resume: React.FC = () => {
+  async function makeApiCall() {
+    await fetch("http://localhost:3000/api/route")
+      .then(() => console.log("success"))
+      .catch(() => console.log("failed"));
+  }
   return (
     <div className="container">
       <h1>Aman&apos;s Resume</h1>
-        {/* <div className="pdf-container">
+      {/* <div className="pdf-container">
             <Document file="resume1.pdf">
             <Page pageNumber={1} />
             </Document>
@@ -29,8 +34,8 @@ const Resume: React.FC = () => {
       <Worker
         workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`}
       >
-         <div className="pdf-container">
-        <Viewer fileUrl="resume1.pdf" />
+        <div className="pdf-container">
+          <Viewer fileUrl="resume1.pdf" />
         </div>
       </Worker>
       <div className="footer">
